@@ -239,14 +239,58 @@ button{font-family:inherit;cursor:none;border:none;background:none;color:inherit
 @media(max-width:768px){.foot-g{grid-template-columns:1fr 1fr}.foot{padding:4rem 1.5rem 2rem}}
 @media(max-width:480px){.foot-g{grid-template-columns:1fr}}
 
+/* UNIVERS SECTION */
+.univers{padding:8rem 0;background:var(--bg2);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);overflow:hidden}
+.univers-h{max-width:var(--max);margin:0 auto;padding:0 3rem 4rem;display:flex;align-items:flex-end;justify-content:space-between;gap:2rem}
+.univers-tabs{display:flex;gap:.4rem;flex-shrink:0}
+.utab{padding:.55rem 1.2rem;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--bd2);color:var(--txd);transition:all .3s var(--ease);cursor:pointer}
+.utab.on{border-color:var(--ac);color:var(--ac);background:var(--acg)}
+.univers-panels{position:relative}
+.upanel{display:none;animation:upIn .6s var(--ease) both}
+.upanel.on{display:block}
+@keyframes upIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.ugrille{display:grid;gap:.4rem;padding:0 3rem;max-width:var(--max);margin:0 auto}
+.ugrille-a{grid-template-columns:1.2fr 0.8fr 1fr;grid-template-rows:340px 240px}
+.ugrille-b{grid-template-columns:1fr 1fr 1fr 1fr;grid-template-rows:420px}
+.ugrille-c{grid-template-columns:0.9fr 1.1fr 0.9fr;grid-template-rows:300px 280px}
+.uc{position:relative;overflow:hidden;cursor:pointer}
+.uc img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease),filter .8s}
+.uc:hover img{transform:scale(1.07);filter:brightness(.5)}
+.uc-ov{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1.8rem;opacity:0;transition:opacity .5s;background:linear-gradient(transparent 40%,rgba(6,6,6,.8) 100%)}
+.uc:hover .uc-ov{opacity:1}
+.uc-cat{font-size:.52rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ac);margin-bottom:.4rem}
+.uc-title{font-family:var(--hd);font-size:1.3rem;font-weight:700;line-height:1.1}
+.uspan2{grid-column:span 2}.uspan1{grid-column:span 1}.urspan2{grid-row:span 2}
+.uc-hero-label{position:absolute;top:1.8rem;left:1.8rem;z-index:2}
+.uc-hero-label span{font-family:var(--hd);font-size:.65rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:rgba(234,230,224,.5)}
+.uc-hero-label h3{font-family:var(--hd);font-size:2.2rem;font-weight:700;line-height:1;color:var(--tx);margin-top:.3rem}
+.uc-hero-label h3 em{color:var(--ac);font-style:italic}
+.u-count{display:inline-flex;align-items:center;gap:.3rem;font-size:.55rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--txd);margin-top:.4rem}
+.u-count::before{content:'';width:16px;height:1px;background:var(--ac)}
+@media(max-width:768px){
+  .univers{padding:5rem 0}
+  .univers-h{flex-direction:column;align-items:flex-start;padding:0 1.25rem 2.5rem;gap:1.5rem}
+  .univers-tabs{width:100%;overflow-x:auto;padding-bottom:.5rem;scrollbar-width:none;-webkit-overflow-scrolling:touch;flex-wrap:nowrap}
+  .univers-tabs::-webkit-scrollbar{display:none}
+  .utab{white-space:nowrap;flex-shrink:0;padding:.6rem 1.1rem;font-size:.58rem}
+  .ugrille{padding:0 1.25rem;gap:.35rem}
+  .ugrille-a,.ugrille-b,.ugrille-c{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .uspan2,.uspan1{grid-column:span 1}
+  .urspan2{grid-row:span 1}
+  .uc:first-child{grid-column:span 2;height:260px}
+  .uc:not(:first-child){height:200px}
+  .uc-ov{opacity:1;background:linear-gradient(transparent 45%,rgba(6,6,6,.78) 100%)}
+  .uc-hero-label h3{font-size:1.5rem}
+  .uc-hero-label span{font-size:.55rem}
+  .ugrille-b .uc:first-child{grid-column:span 2;height:260px}
+}
+
 /* LIGHTBOX */
 .lb{display:none;position:fixed;inset:0;z-index:8000;background:rgba(6,6,6,.97);align-items:center;justify-content:center;padding:2rem}
 .lb.open{display:flex}
 .lb img{max-width:92vw;max-height:90vh;object-fit:contain}
 .lb-x{position:absolute;top:2rem;right:2.5rem;font-size:1.8rem;color:var(--txd);z-index:8001;transition:color .3s;cursor:pointer}
 .lb-x:hover{color:var(--ac)}
-
-/* ============================================
    MOBILE PREMIUM — SEVEN-PROD
    Optimisation smartphone complète
    Breakpoints: 480px / 640px / 768px
@@ -742,6 +786,117 @@ button{font-family:inherit;cursor:none;border:none;background:none;color:inherit
 </div>
 </section>
 
+<!-- UNIVERS — 3 onglets photo par ambiance -->
+<div class="univers rv" id="univers">
+<div class="univers-h">
+  <div>
+    <div class="sl"><div class="sl-l"></div><span>03 — Univers</span></div>
+    <h2 class="st">Trois ambiances,<br>une seule <em>vision</em></h2>
+    <p class="sd" style="margin-bottom:0">Studio, rue, éditorial — chaque projet a son ADN visuel.</p>
+  </div>
+  <div class="univers-tabs">
+    <button class="utab on" onclick="uSwitch(this,'u-glamour')">Glamour</button>
+    <button class="utab" onclick="uSwitch(this,'u-raw')">Raw &amp; Street</button>
+    <button class="utab" onclick="uSwitch(this,'u-editorial')">Éditorial</button>
+  </div>
+</div>
+<div class="univers-panels">
+
+  <!-- PANEL 1 : GLAMOUR STUDIO -->
+  <div class="upanel on" id="u-glamour">
+    <div class="ugrille ugrille-a">
+      <!-- Grande carte hero -->
+      <div class="uc uspan1 urspan2" onclick="oLB(this)">
+        <img src="WhatsApp_Image_2026-03-31_at_22_11_49__2_.jpeg" alt="Portrait studio rouge" loading="lazy">
+        <div class="uc-hero-label">
+          <span>Glamour Studio</span>
+          <h3>Rouge<br><em>Cinéma</em></h3>
+          <div class="u-count">5 photos · Session studio</div>
+        </div>
+        <div class="uc-ov"><div class="uc-cat">Portrait</div><div class="uc-title">Red Light</div></div>
+      </div>
+      <!-- Duo vertical -->
+      <div class="uc uspan1" onclick="oLB(this)">
+        <img src="WhatsApp_Image_2026-03-31_at_22_11_49.jpeg" alt="Duo shooting rouge" loading="lazy">
+        <div class="uc-ov"><div class="uc-cat">Duo</div><div class="uc-title">Fire &amp; Ice</div></div>
+      </div>
+      <!-- 3e carte -->
+      <div class="uc uspan1" onclick="oLB(this)">
+        <img src="WhatsApp_Image_2026-03-29_at_12_57_46__2_.jpeg" alt="Portrait studio lace" loading="lazy">
+        <div class="uc-ov"><div class="uc-cat">Mode</div><div class="uc-title">Velvet Touch</div></div>
+      </div>
+      <!-- Bas gauche -->
+      <div class="uc uspan1" onclick="oLB(this)">
+        <img src="WhatsApp_Image_2026-03-29_at_12_57_46__3_.jpeg" alt="Trio studio" loading="lazy">
+        <div class="uc-ov"><div class="uc-cat">Groupe</div><div class="uc-title">Triple Threat</div></div>
+      </div>
+      <!-- Bas droite — CTA -->
+      <div class="uc uspan1" style="background:var(--bg3);display:flex;align-items:center;justify-content:center;border:1px solid var(--bd2);cursor:default">
+        <div style="text-align:center;padding:2rem">
+          <div style="font-family:var(--hd);font-size:1.6rem;font-weight:700;margin-bottom:.5rem">Ton shooting<br><em style="color:var(--ac)">studio</em></div>
+          <p style="font-size:.75rem;color:var(--txd);margin-bottom:1.5rem;line-height:1.6">Fond coloré, lumière maîtrisée, direction artistique complète.</p>
+          <a href="#devis" class="btn-g" style="font-size:.6rem;padding:.8rem 1.6rem">Réserver →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 2 : RAW & STREET -->
+  <div class="upanel" id="u-raw">
+    <div class="ugrille ugrille-b">
+      <div class="uc uspan2" onclick="oLB(this)">
+        <img src="WhatsApp_Image_2026-03-29_at_23_29_29.jpeg" alt="Duo basket street" loading="lazy">
+        <div class="uc-hero-label">
+          <span>Raw &amp; Street</span>
+          <h3>Dans la<br><em>rue</em></h3>
+          <div class="u-count">Authentique · Cinématique</div>
+        </div>
+        <div class="uc-ov"><div class="uc-cat">Street</div><div class="uc-title">Court Side</div></div>
+      </div>
+      <div class="uc uspan1" onclick="oLB(this)">
+        <img src="WhatsApp_Image_2026-03-31_at_22_11_49__1_.jpeg" alt="Portrait N&B studio" loading="lazy">
+        <div class="uc-ov"><div class="uc-cat">Noir &amp; Blanc</div><div class="uc-title">Raw Power</div></div>
+      </div>
+      <div class="uc uspan1" onclick="oLB(this)">
+        <img src="WhatsApp_Image_2026-03-31_at_22_11_50.jpeg" alt="Portrait montre N&B" loading="lazy">
+        <div class="uc-ov"><div class="uc-cat">Détail</div><div class="uc-title">Time Flex</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 3 : ÉDITORIAL -->
+  <div class="upanel" id="u-editorial">
+    <div class="ugrille ugrille-c">
+      <div class="uc uspan1" onclick="oLB(this)">
+        <img src="WhatsApp_Image_2026-03-31_at_22_13_24.jpeg" alt="Portrait éditorial lunettes" loading="lazy">
+        <div class="uc-ov"><div class="uc-cat">Éditorial</div><div class="uc-title">Blind Spot</div></div>
+      </div>
+      <div class="uc uspan1 urspan2" onclick="oLB(this)">
+        <img src="WhatsApp_Image_2026-03-29_at_12_57_46__2_.jpeg" alt="Portrait lace editorial" loading="lazy">
+        <div class="uc-hero-label">
+          <span>Éditorial</span>
+          <h3>L'image<br><em>qui reste</em></h3>
+        </div>
+        <div class="uc-ov"><div class="uc-cat">Mode</div><div class="uc-title">Signature</div></div>
+      </div>
+      <div class="uc uspan1" onclick="oLB(this)">
+        <img src="WhatsApp_Image_2026-03-31_at_22_11_49__2_.jpeg" alt="Portrait rouge editorial" loading="lazy">
+        <div class="uc-ov"><div class="uc-cat">Portrait</div><div class="uc-title">Chromatic</div></div>
+      </div>
+      <div class="uc uspan1" onclick="oLB(this)">
+        <img src="WhatsApp_Image_2026-03-29_at_12_57_46__3_.jpeg" alt="Trio editorial" loading="lazy">
+        <div class="uc-ov"><div class="uc-cat">Groupe</div><div class="uc-title">Collectives</div></div>
+      </div>
+      <div class="uc uspan1" onclick="oLB(this)">
+        <img src="WhatsApp_Image_2026-03-31_at_22_13_24.jpeg" alt="Close-up editorial" loading="lazy">
+        <div class="uc-ov"><div class="uc-cat">Close-Up</div><div class="uc-title">Focus</div></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /univers-panels -->
+</div><!-- /univers -->
+
 <!-- CTA -->
 <div class="cta rv">
 <div class="sl" style="justify-content:center"><div class="sl-l"></div><span>Seven-Prod · Paris</span><div class="sl-l"></div></div>
@@ -895,6 +1050,14 @@ document.getElementById('fC').style.display='none';document.getElementById('fOk'
 /* REVEAL */
 var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv').forEach(function(e){ro.observe(e)});
+
+/* UNIVERS TABS */
+function uSwitch(btn,id){
+  document.querySelectorAll('.utab').forEach(function(t){t.classList.remove('on')});
+  document.querySelectorAll('.upanel').forEach(function(p){p.classList.remove('on')});
+  btn.classList.add('on');
+  document.getElementById(id).classList.add('on');
+}
 
 /* SMOOTH */
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
