@@ -415,7 +415,8 @@ button{font-family:inherit;cursor:none;border:none;background:none;color:inherit
 
   /* --- SPLIT / À PROPOS MOBILE --- */
   .split{grid-template-columns:1fr;min-height:auto}
-  .sp-img{height:55vw;min-height:240px}
+  .sp-img{height:70vw;min-height:280px}
+  .sp-img img{object-position:top center}
   .sp-img::after{background:linear-gradient(transparent 55%,var(--bg) 100%)}
   .sp-tx{padding:2.5rem var(--space-sm)}
   .sp-tx p{font-size:.88rem;line-height:1.85}
@@ -430,8 +431,8 @@ button{font-family:inherit;cursor:none;border:none;background:none;color:inherit
   .reel{padding:var(--space-xl) var(--space-sm)}
   .reel-w{
     margin:2rem auto 0;
-    aspect-ratio:9/16;
-    max-height:70svh;
+    aspect-ratio:16/9;
+    max-height:none;
     border-radius:8px;
     border:1px solid rgba(201,168,76,.2);
   }
@@ -754,7 +755,7 @@ button{font-family:inherit;cursor:none;border:none;background:none;color:inherit
 <div class="sl" style="justify-content:center"><div class="sl-l"></div><span>Behind the lens</span><div class="sl-l"></div></div>
 <h2 class="st" style="text-align:center">En <em>mouvement</em></h2>
 <div class="reel-w" id="rW" onclick="tReel()">
-<video id="rV" preload="metadata" playsinline poster="showreel-poster.jpeg"><source src="showreel.mp4" type="video/mp4"></video>
+<video id="rV" preload="metadata" playsinline muted><source src="showreel.mp4.mp4" type="video/mp4"></video>
 <div class="reel-ov"><div class="pl-c"><svg viewBox="0 0 24 24"><polygon points="8,5 20,12 8,19"/></svg></div><span class="reel-tg">Showreel 2025</span></div>
 </div>
 </section>
